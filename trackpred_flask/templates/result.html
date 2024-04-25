@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Track Prediction Result</title>
+</head>
+<body>
+    <h1>Predicted Track</h1>
+    <ul>
+        {% for prediction in predictions %}
+        <li>Track: {{ prediction.track }}, Probability: {{ prediction.probability }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
