@@ -60,22 +60,6 @@ class UserPreferences(BaseModel):
     healthcare_info_systems: int
     it_project_manager: int
     ml_engineer: int
-    track_rank1: int
-    track_rank2: int
-    track_rank3: int
-    track_rank4: int
-    track_rank5: int
-    track_rank6: int
-    track_rank7: int
-    track_rank8: int
-    subj_rank1: int
-    subj_rank2: int
-    subj_rank3: int
-    subj_rank4: int
-    subj_rank5: int
-    subj_rank6: int
-    subj_rank7: int
-    subj_rank8: int
 
 app = FastAPI()
 
