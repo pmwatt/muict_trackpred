@@ -23,8 +23,9 @@
     <h1>Predicted Track</h1>
     <ul>
         {% for prediction in predictions %}
-        <li>Track: {{ prediction.track }}, Probability: {{ prediction.probability }}</li>
+        <li>Track: {{ prediction.track }}, Probability: {{ prediction.probability*100 }}%</li>
         {% endfor %}
     </ul>
+    <a href="/"><button>Back</button></a>
 </body>
 </html>

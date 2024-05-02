@@ -65,7 +65,7 @@ params = { #random forest's hyperparameters
     'random_state': 42      # Random state for reproducibility
 }
 # Train a Random Forest Classifier
-clf = RandomForestClassifier()
+clf = RandomForestClassifier(**params)
 clf.fit(X_train, y_train)
 
 # Make predictions on the test set
