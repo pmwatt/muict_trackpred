@@ -9,4 +9,9 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 COPY . /code
 
-CMD ["flask", "--app", "main", "run"]
+# Expose $PORT on container.
+# We use a varibale here as the port is something that can differ on the environment.
+# https://www.milanwittpohl.com/projects/tutorials/full-stack-web-app/dockerizing-our-front-and-backend
+EXPOSE $PORT
+
+CMD ["python", "-m", "flask", "run"]

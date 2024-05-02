@@ -1,8 +1,9 @@
 import pickle
 
-import pandas as pd
 from fastapi import FastAPI
 from pydantic import BaseModel
+import pandas as pd
+import sklearn
 
 # Load the trained model
 with open("model.pkl", "rb") as file:

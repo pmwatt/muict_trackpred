@@ -3,6 +3,9 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
+# this should be the same as backend fastapi port
+PORT = '80'
+
 
 @app.route("/")
 def index():
@@ -18,7 +21,7 @@ def predict():
     print(user_preferences)
 
     # Send a POST request to the API endpoint
-    response = requests.post("http://localhost:8000/predict", json=user_preferences)
+    response = requests.post("http://localhost:{PORT}/predict", json=user_preferences)
 
     if response.status_code == 200:
         # Get the predictions from the response
@@ -27,6 +30,6 @@ def predict():
     else:
         return "Error: Failed to fetch predictions", 500
 
-
+# https://stackoverflow.com/questions/76780688/running-a-flask-app-in-docker-doesnt-show-a-page-in-browser
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)
