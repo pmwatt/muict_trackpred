@@ -11,3 +11,6 @@ files used
 3. run `docker run -p 80:80 --name <your_container_name> trackpred/backend` to create and run the container based on the created image
    1. This is a bad practice because we hard-coded port 80, which means that if anyone wants to change the port number, you need to also change `PORT` in `/trackpred_flask/main.py` too.
 4. Now run the frontend flask webserver
+
+# running without docker (for quick testing)
+1. run `uvicorn main:app --host 0.0.0.0 --reload --port 80`
