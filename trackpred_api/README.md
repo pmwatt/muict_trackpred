@@ -4,6 +4,8 @@ files used
   - responsible for running fastapi prediction web service.
 - `model.py`
   - used to create and store our ML model in the first place. For docker, this doesn't need to be run, but we've included it as a reference of how we made the model in the first place.
+- `data_prep.ipynb`
+  - used for preparation, training, and evaluation. this was originally used in google colab
 
 # building and running docker image
 1. if not done already, run `docker network create trackpred` **once**. this is because we have two containers interacting together, and we need to connect them via the `trackpred` network using their network aliases. see [here](https://docs.docker.com/get-started/07_multi_container/) for more reference details.
