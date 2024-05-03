@@ -21,7 +21,8 @@ def predict():
     print(user_preferences)
 
     # Send a POST request to the API endpoint
-    response = requests.post("http://localhost:%s/predict" % PORT, json=user_preferences)
+    # be=backend, a network alias we set to the fastapi backend container
+    response = requests.post("http://be:%s/predict" % PORT, json=user_preferences)
 
     if response.status_code == 200:
         # Get the predictions from the response
@@ -32,4 +33,4 @@ def predict():
 
 # https://stackoverflow.com/questions/76780688/running-a-flask-app-in-docker-doesnt-show-a-page-in-browser
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run()
