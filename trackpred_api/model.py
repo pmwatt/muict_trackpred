@@ -28,7 +28,7 @@ from pprint import pprint
 import pickle
 
 # Path to your track prediction csv file
-path = 'dataset_uncoded.csv'
+path = 'dataset_v4c.csv'
 
 # Load the dataset
 data = pd.read_csv(path, encoding='latin-1')
@@ -58,10 +58,10 @@ print(type(X_test))
 """## dummy training and evaluation - random forest"""
 
 params = { #random forest's hyperparameters
-    'n_estimators': 10000,    # Number of trees in the forest
-    'max_depth': 50,      # Maximum depth of the tree
-    'min_samples_split': 2, # Minimum number of samples required to split an internal node
-    'min_samples_leaf': 1,  # Minimum number of samples required to be at a leaf node
+    'n_estimators': 5000,    # Number of trees in the forest
+    'max_depth': 200,      # Maximum depth of the tree
+    'min_samples_split': 3, # Minimum number of samples required to split an internal node
+    'min_samples_leaf': 2,  # Minimum number of samples required to be at a leaf node
     'random_state': 42      # Random state for reproducibility
 }
 # Train a Random Forest Classifier

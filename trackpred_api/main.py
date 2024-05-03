@@ -3,7 +3,7 @@ import pickle
 from fastapi import FastAPI
 from pydantic import BaseModel
 import pandas as pd
-import sklearn
+import sklearn # it's actually used
 
 # Load the trained model
 with open("model.pkl", "rb") as file:
@@ -18,41 +18,28 @@ class_names = model.classes_
 
 
 class UserPreferences(BaseModel):
-    html_css_js: int
     scikitlearn: int
-    git: int
     powerbi: int
-    numpypandas: int
     unity: int
     mysql: int
     blender: int
-    arduinoraspberrypi: int
     mongodb: int
     team_role_excitement: int
-    game_career_preference: int
-    health_app_contribution2: int
     interactive_3d_animations: int
     intelligent_techniques: int
     ml_models: int
-    advanced_data_structures: int
     database_project: int
     software_testing: int
     scm_crm_bi_systems: int
-    healthcare_standards: int
     lowlevel_3d_graphics: int
     software_project: int
-    network_infrastructure2: int
-    microcontroller_programming: int
     business_requirements_analysis: int
     efficient_algorithms: int
-    system_security_reliability: int
     system_integration: int
     fullstack_web_developer: int
     data_engineer: int
-    network_administrator: int
     animator_3d: int
     bi_consultant: int
-    healthcare_info_systems: int
     it_project_manager: int
     ml_engineer: int
 
@@ -71,7 +58,7 @@ def predict(user_preferences: UserPreferences):
 
     # Create a list of dictionaries with track names and probabilities
     predictions = [
-        {"track": class_names[i], "probability": float(probabilities[i])}
+        {"track": class_names[i], "probability": "%.2f" % float(probabilities[i]*100)}
         for i in range(len(class_names))
     ]
 
