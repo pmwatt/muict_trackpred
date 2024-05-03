@@ -21,25 +21,18 @@ class UserPreferences(BaseModel):
     html_css_js: int
     scikitlearn: int
     git: int
-    odoo: int
     powerbi: int
     numpypandas: int
-    cisco_packet_tracer: int
     unity: int
     mysql: int
     blender: int
     arduinoraspberrypi: int
     mongodb: int
-    large_dataset_appeal: int
-    health_app_contribution: int
     team_role_excitement: int
     game_career_preference: int
     health_app_contribution2: int
-    preferred_concepts: int
     interactive_3d_animations: int
-    network_infrastructure: int
     intelligent_techniques: int
-    ecommerce_and_bi: int
     ml_models: int
     advanced_data_structures: int
     database_project: int

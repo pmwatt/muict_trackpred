@@ -21,7 +21,7 @@ def predict():
     print(user_preferences)
 
     # Send a POST request to the API endpoint
-    response = requests.post("http://localhost:{PORT}/predict", json=user_preferences)
+    response = requests.post("http://localhost:%s/predict" % PORT, json=user_preferences)
 
     if response.status_code == 200:
         # Get the predictions from the response
