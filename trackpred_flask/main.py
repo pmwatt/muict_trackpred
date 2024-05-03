@@ -18,7 +18,9 @@ def predict():
     user_preferences = {}
     for key in request.form:
         user_preferences[key] = int(request.form[key])
-    print(user_preferences)
+
+    # For debugging
+    # print(user_preferences)
 
     # Send a POST request to the API endpoint
     # be=backend, a network alias we set to the fastapi backend container

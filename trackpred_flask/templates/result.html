@@ -1,31 +1,125 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Track Prediction Result</title>
+    <link rel="stylesheet" href="/static/global.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+        .trackpred-form {
+            background-color: #ffffff;
+            padding: 30px;
+            margin: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 60%;
         }
-        h1 {
-            color: #333;
+
+        .trackpred-form h1 {
+            text-align: center;
+            margin-bottom: 20px;
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
+
+        .trackpred-form label {
+            color: #666666;
         }
-        li {
-            margin-bottom: 10px;
+
+        .trackpred-form input {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .trackpred-form button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .trackpred-form button:hover {
+            background-color: #45a049;
+        }
+
+        .trackpred-form p {
+            font-family: 'Segoe UI';
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            transition: all;
+        }
+
+        .trackpred-form a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .trackpred-form a:hover {
+            text-decoration: underline;
+        }
+
+        label {
+            font-family: 'Segoe UI';
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 15px;
+            margin-top: 20px;
+            background-color: #45a049;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #72ce76;
+        }
+
+        select {
+            background-color: #549157;
+            color: white;
+            border-radius: 5px;
+            border: none;
+            padding: 5px 20px;
+            margin-bottom: 15px;
+        }
+
+        select:hover {
+            background-color: #66ac6a;
+            transition: all;
+        }
+
+        option {
+            border: none;
+
         }
     </style>
 </head>
+
 <body>
-    <h1>Predicted Track</h1>
-    <ul>
-        {% for prediction in predictions %}
-        <li>Track: {{ prediction.track }}, Probability: {{ prediction.probability }}%</li>
-        {% endfor %}
-    </ul>
-    <a href="/"><button>Back</button></a>
+    <!-- borrowed from form page -->
+    <div class="trackpred-form">
+        <h1>Predicted Track</h1>
+        <ul>
+            {% for prediction in predictions %}
+            <li>Track: {{ prediction.track }}, Probability: {{ prediction.probability }}%</li>
+            {% endfor %}
+        </ul>
+        <a href="/"><button>Back</button></a>
+    </div>
 </body>
+
 </html>

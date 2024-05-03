@@ -3,52 +3,126 @@
 
 <head>
     <title>Track Prediction Form</title>
+    <link rel="stylesheet" href="/static/global.css">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif;
-            margin: 40px;
-            background: #ffffff;
-            color: #000;
+        .trackpred-form {
+            background-color: #ffffff;
+            padding: 30px;
+            margin: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 60%;
         }
 
-        form {
-            max-width: 500px;
-            margin: 0 auto;
+        .trackpred-form h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .trackpred-form label {
+            color: #666666;
+        }
+
+        .trackpred-form input {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .trackpred-form button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .trackpred-form button:hover {
+            background-color: #45a049;
+        }
+
+        .trackpred-form p {
+            font-family: 'Segoe UI';
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            transition: all;
+        }
+
+        .trackpred-form a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .trackpred-form a:hover {
+            text-decoration: underline;
         }
 
         label {
+            font-family: 'Segoe UI';
             display: block;
             margin-bottom: 5px;
         }
 
-        input[type="number"] {
-            width: 100%;
-            padding: 5px;
-            margin-bottom: 10px;
-        }
-
         input[type="submit"] {
-            padding: 5px 15px;
-            background-color: #007bff;
+            padding: 10px 15px;
+            margin-top: 20px;
+            background-color: #45a049;
             color: white;
             border: none;
+            border-radius: 5px;
             cursor: pointer;
         }
 
         input[type="submit"]:hover {
-            background-color: #0056b3;
+            background-color: #72ce76;
+        }
+
+        select {
+            background-color: #549157;
+            color: white;
+            border-radius: 5px;
+            border: none;
+            padding: 5px 20px;
+            margin-bottom: 15px;
+        }
+
+        select:hover {
+            background-color: #66ac6a;
+            transition: all;
+        }
+
+        option {
+            border: none;
+
         }
     </style>
 </head>
 
 <body>
-    <h1>MUICT Track Recommendations</h1>
-    <h2>Enter your preferences</h2>
-    <form action="/predict" method="post">
+    <form action="/predict" method="post" class="trackpred-form">
+        <h1>MUICT Track Recommendations</h1>
+        <p>This form is designed to help recommend you MUICT tracks based on your estimated interests, preferences, and
+            aspirations in IT. By answering a series of questions, our advanced machine learning model will analyze your
+            responses and provide personalized recommendations for the university tracks that align best with your goals
+            and skills. <b>It is not perfect</b>, but we hope that this would be able to give you a glimpses of what may
+            align with some of your preferences.</p>
+        <h2>Enter your preferences</h2>
+        <hr style="border: 1px solid #eeeeee;">
         <div>
             <h3>How interested/comfortable are you in the following languages and tools. (1=not interested,
                 4=interested)</h3>
-            <label for="scikitlearn">Scikit-learn:</label>
+            <label for="scikitlearn">Scikit-learn</label>
             <select name="scikitlearn" id="scikitlearn" required>
                 <option value="0">1</option>
                 <option value="1">2</option>
@@ -56,7 +130,7 @@
                 <option value="3">4</option>
             </select>
 
-            <label for="powerbi">PowerBI:</label>
+            <label for="powerbi">PowerBI</label>
             <select name="powerbi" id="powerbi" required>
                 <option value="0">1</option>
                 <option value="1">2</option>
@@ -64,7 +138,7 @@
                 <option value="3">4</option>
             </select>
 
-            <label for="unity">Unity:</label>
+            <label for="unity">Unity</label>
             <select name="unity" id="unity" required>
                 <option value="0">1</option>
                 <option value="1">2</option>
@@ -72,7 +146,7 @@
                 <option value="3">4</option>
             </select>
 
-            <label for="mysql">MySQL:</label>
+            <label for="mysql">MySQL</label>
             <select name="mysql" id="mysql" required>
                 <option value="0">1</option>
                 <option value="1">2</option>
@@ -80,7 +154,7 @@
                 <option value="3">4</option>
             </select>
 
-            <label for="blender">Blender:</label>
+            <label for="blender">Blender</label>
             <select name="blender" id="blender" required>
                 <option value="0">1</option>
                 <option value="1">2</option>
@@ -88,7 +162,7 @@
                 <option value="3">4</option>
             </select>
 
-            <label for="mongodb">MongoDB:</label>
+            <label for="mongodb">MongoDB</label>
             <select name="mongodb" id="mongodb" required>
                 <option value="0">1</option>
                 <option value="1">2</option>
@@ -97,8 +171,9 @@
             </select>
         </div>
 
+        <hr style="border: 1px solid #eeeeee;">
+
         <h3>Imagine you're working on a team project. Which role would you be most excited to take on?</h3>
-        <label for="team_role_excitement">Team Role Excitement:</label>
         <select name="team_role_excitement" id="team_role_excitement">
             <option value="0">Coding the core software components and optimizing their performance</option>
             <option value="1">Analyzing complex datasets to uncover meaningful insights and patterns</option>
@@ -106,9 +181,15 @@
             <option value="3">Evaluating the system architecture and identifying potential vulnerabilities</option>
         </select>
 
-        <h3>Imagine you are working on a project that involves building a multimedia application for educational purposes. Its features include content delivery e.g. educational videos and articles, recommendations based on user's interests, and simulation of concepts e.g. mathematics graphs, physics/biology/chemistry simulation, etc.</h3>
-        <h4>How interested would you be in the following aspects of the project? (1=Not interested, 4=interested)</h4>
-        <label for="interactive_3d_animations">Interactive 3D Animations:</label>
+        <hr style="border: 1px solid #eeeeee;">
+
+        <h3>Imagine you are working on a project that involves building a multimedia application for educational
+            purposes. Its features include content delivery e.g. educational videos and articles, recommendations
+            based on user's interests, and simulation of concepts e.g. mathematics graphs, physics/biology/chemistry
+            simulation, etc.</h3>
+        <h4>How interested would you be in the following aspects of the project? (1=Not interested, 4=interested)
+        </h4>
+        <label for="interactive_3d_animations">Interactive 3D Animations</label>
         <select name="interactive_3d_animations" id="interactive_3d_animations">
             <option value="0">1</option>
             <option value="1">2</option>
@@ -116,7 +197,7 @@
             <option value="3">4</option>
         </select>
 
-        <label for="intelligent_techniques">Intelligent Techniques:</label>
+        <label for="intelligent_techniques">Intelligent Techniques</label>
         <select name="intelligent_techniques" id="intelligent_techniques">
             <option value="0">1</option>
             <option value="1">2</option>
@@ -124,8 +205,11 @@
             <option value="3">4</option>
         </select>
 
-        <h3>Which of the following concepts would you like to understand and gain from the track you chose. (1=Not interested, 4=interested)</h3>
-        <label for="ml_models">ML Models:</label>
+        <hr style="border: 1px solid #eeeeee;">
+
+        <h3>Which of the following concepts would you like to understand and gain from the track you chose. (1=Not
+            interested, 4=interested)</h3>
+        <label for="ml_models">ML Models</label>
         <select name="ml_models" id="ml_models">
             <option value="0">1</option>
             <option value="1">2</option>
@@ -133,7 +217,7 @@
             <option value="3">4</option>
         </select>
 
-        <label for="database_project">Database Project:</label>
+        <label for="database_project">Database Project</label>
         <select name="database_project" id="database_project">
             <option value="0">1</option>
             <option value="1">2</option>
@@ -141,7 +225,7 @@
             <option value="3">4</option>
         </select>
 
-        <label for="software_testing">Software Testing:</label>
+        <label for="software_testing">Software Testing</label>
         <select name="software_testing" id="software_testing">
             <option value="0">1</option>
             <option value="1">2</option>
@@ -149,7 +233,7 @@
             <option value="3">4</option>
         </select>
 
-        <label for="scm_crm_bi_systems">SCM/CRM/BI Systems:</label>
+        <label for="scm_crm_bi_systems">SCM/CRM/BI Systems</label>
         <select name="scm_crm_bi_systems" id="scm_crm_bi_systems">
             <option value="0">1</option>
             <option value="1">2</option>
@@ -157,7 +241,7 @@
             <option value="3">4</option>
         </select>
 
-        <label for="lowlevel_3d_graphics">Low-level 3D Graphics:</label>
+        <label for="lowlevel_3d_graphics">Low-level 3D Graphics</label>
         <select name="lowlevel_3d_graphics" id="lowlevel_3d_graphics">
             <option value="0">1</option>
             <option value="1">2</option>
@@ -165,7 +249,7 @@
             <option value="3">4</option>
         </select>
 
-        <label for="software_project">Software Project:</label>
+        <label for="software_project">Software Project</label>
         <select name="software_project" id="software_project">
             <option value="0">1</option>
             <option value="1">2</option>
@@ -173,8 +257,12 @@
             <option value="3">4</option>
         </select>
 
-        <h3>You are part of a team tasked with developing a new software system for a growing business. How interested would you be in the following aspects of the project? (1=not interested, 4=interested)</h3>
-        <label for="business_requirements_analysis">Analyzing the business requirements and defining the system architecture</label>
+        <hr style="border: 1px solid #eeeeee;">
+
+        <h3>You are part of a team tasked with developing a new software system for a growing business. How
+            interested would you be in the following aspects of the project? (1=not interested, 4=interested)</h3>
+        <label for="business_requirements_analysis">Analyzing the business requirements and defining the system
+            architecture</label>
         <select name="business_requirements_analysis" id="business_requirements_analysis">
             <option value="0">1</option>
             <option value="1">2</option>
@@ -182,7 +270,8 @@
             <option value="3">4</option>
         </select>
 
-        <label for="efficient_algorithms">Implementing efficient algorithms and data structures to optimize the system's performance</label>
+        <label for="efficient_algorithms">Implementing efficient algorithms and data structures to optimize the
+            system's performance</label>
         <select name="efficient_algorithms" id="efficient_algorithms">
             <option value="0">1</option>
             <option value="1">2</option>
@@ -190,7 +279,8 @@
             <option value="3">4</option>
         </select>
 
-        <label for="system_integration">Integrating the system with databases, business intelligence tools, and data analytics</label>
+        <label for="system_integration">Integrating the system with databases, business intelligence tools, and data
+            analytics</label>
         <select name="system_integration" id="system_integration">
             <option value="0">1</option>
             <option value="1">2</option>
@@ -198,8 +288,12 @@
             <option value="3">4</option>
         </select>
 
+        <hr style="border: 1px solid #eeeeee;">
+
         <h3>Rate how interested you are in each of these example jobs (1=Not interested, 4=interested)</h3>
-        <label for="fullstack_web_developer">Full-Stack Web Developer: Design and develop both front-end and back-end components of web applications, implement efficient algorithms and data structures, ensure software quality through testing and debugging.</label>
+        <label for="fullstack_web_developer">Full-Stack Web Developer: Design and develop both front-end and
+            back-end components of web applications, implement efficient algorithms and data structures, ensure
+            software quality through testing and debugging.</label>
         <select name="fullstack_web_developer" id="fullstack_web_developer">
             <option value="0">1</option>
             <option value="1">2</option>
@@ -207,7 +301,9 @@
             <option value="3">4</option>
         </select>
 
-        <label for="data_engineer">Data Engineer: Design and manage database systems, implement data warehousing and data mining solutions, develop intelligent systems for pattern recognition and knowledge management.</label>
+        <label for="data_engineer">Data Engineer: Design and manage database systems, implement data warehousing and
+            data mining solutions, develop intelligent systems for pattern recognition and knowledge
+            management.</label>
         <select name="data_engineer" id="data_engineer">
             <option value="0">1</option>
             <option value="1">2</option>
@@ -215,7 +311,9 @@
             <option value="3">4</option>
         </select>
 
-        <label for="animator_3d">3D Animator: Create 3D animations and visual effects for movies, games, or multimedia applications, develop computer graphics and character animations, optimize rendering performance.</label>
+        <label for="animator_3d">3D Animator: Create 3D animations and visual effects for movies, games, or
+            multimedia applications, develop computer graphics and character animations, optimize rendering
+            performance.</label>
         <select name="animator_3d" id="animator_3d">
             <option value="0">1</option>
             <option value="1">2</option>
@@ -223,7 +321,9 @@
             <option value="3">4</option>
         </select>
 
-        <label for="bi_consultant">Business Intelligence Consultant: Analyze business processes and requirements, implement e-business platforms and customer relationship management systems, develop decision support and business intelligence solutions.</label>
+        <label for="bi_consultant">Business Intelligence Consultant: Analyze business processes and requirements,
+            implement e-business platforms and customer relationship management systems, develop decision support
+            and business intelligence solutions.</label>
         <select name="bi_consultant" id="bi_consultant">
             <option value="0">1</option>
             <option value="1">2</option>
@@ -231,7 +331,9 @@
             <option value="3">4</option>
         </select>
 
-        <label for="it_project_manager">IT Project Manager: Manage IT projects and resources within an organization, analyze and design business processes, implement decision support and business intelligence solutions, ensure project deliverables and timelines.</label>
+        <label for="it_project_manager">IT Project Manager: Manage IT projects and resources within an organization,
+            analyze and design business processes, implement decision support and business intelligence solutions,
+            ensure project deliverables and timelines.</label>
         <select name="it_project_manager" id="it_project_manager">
             <option value="0">1</option>
             <option value="1">2</option>
@@ -239,7 +341,9 @@
             <option value="3">4</option>
         </select>
 
-        <label for="ml_engineer">Machine Learning Engineer: Develop and deploy machine learning models, implement efficient algorithms and data structures, apply computer science theories to solve complex problems, work on machine learning and deep learning applications.</label>
+        <label for="ml_engineer">Machine Learning Engineer: Develop and deploy machine learning models, implement
+            efficient algorithms and data structures, apply computer science theories to solve complex problems,
+            work on machine learning and deep learning applications.</label>
         <select name="ml_engineer" id="ml_engineer">
             <option value="0">1</option>
             <option value="1">2</option>
@@ -247,8 +351,7 @@
             <option value="3">4</option>
         </select>
 
-        <input type="submit" value="Submit">
-    </form>
+        <input type="submit" value="Calculate">
     </form>
 </body>
 

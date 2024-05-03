@@ -1,9 +1,0 @@
-services:
-  trackpred-frontend:
-    image: trackpred/fe1
-    ports:
-      - 5000:5000
-  trackpred-backend:
-    image: trackpred/be1
-    ports:
-      - 80:80
