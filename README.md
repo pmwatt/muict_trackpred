@@ -2,6 +2,14 @@
 ![image](https://github.com/pmwatt/muict_trackpred/assets/87473156/b7c3a112-2210-410e-b101-efb9f482dd40)
 ![image](https://github.com/pmwatt/muict_trackpred/assets/87473156/17f069b4-dc0c-4e13-9c4d-7050483dc14d)
 
+## Members
+| Student ID | Name                         | Responsibilities                                       |
+|------------|------------------------------|--------------------------------------------------------|
+| 6488130    | Warittha Tarntong             | Questionnaire design, Data preprocessing               |
+| 6488160    | Prachnachai Meakpaiboonwattana| FastAPI and Flask frontend implementation, Docker Deployment |
+| 6488191    | Poohtanmai Siriwachirapap     | Hyperparameter Tuning, Model Evaluation                |
+
+
 ## Building and Running Frontend Flask
 1. if not done already, run `docker network create trackpred` **once**. this is because we have two containers interacting together, and we need to connect them via the `trackpred` network using their network aliases. see [here](https://docs.docker.com/get-started/07_multi_container/) for more reference details.
 2. navigate to this folder in your shell (`trackpred_flask`)
